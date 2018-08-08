@@ -3,8 +3,7 @@
         <HeroImage />
 
     <Claim />
-    <SearchInput v-model="searchValue"
-     @input="handleInput" />
+    <SearchInput />
     <!-- <div class="search">
       <label for="search">Search</label>
       <input type="text" id="search"
@@ -52,7 +51,6 @@ export default {
     // }
 
     handleInput: debounce(function() {
-      console.log(this.searchValue);
       axios
         .get(`${API}${this.searchValue}&media_type=image`)
         .then(res => {

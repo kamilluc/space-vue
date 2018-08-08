@@ -3,8 +3,7 @@
         <HeroImage />
 
     <Claim />
-    <SearchInput v-model="searchValue"
-     @input="handleInput" />
+    <SearchInput />
     <!-- <div class="search">
       <label for="search">Search</label>
       <input type="text" id="search"
@@ -52,7 +51,6 @@ export default {
     // }
 
     handleInput: debounce(function() {
-      console.log(this.searchValue);
       axios
         .get(`${API}${this.searchValue}&media_type=image`)
         .then(res => {
@@ -69,16 +67,14 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
-  padding: 30px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 30px;
+  // width: 100%;
   // height: 100vh;
-
   justify-content: center;
+  // background: linear-gradient(#444b9b, #e66465);
 }
 </style>

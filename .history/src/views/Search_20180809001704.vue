@@ -52,7 +52,6 @@ export default {
     // }
 
     handleInput: debounce(function() {
-      console.log(this.searchValue);
       axios
         .get(`${API}${this.searchValue}&media_type=image`)
         .then(res => {
