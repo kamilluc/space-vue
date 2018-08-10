@@ -1,6 +1,6 @@
 <template>
     <div class="searchinput-wrapper">
-      <input type="text" id="search" placeholder="eg. Star"
+      <input type="text" id="search"
       name="search"
       :class="{dark}"
       :value="value"
