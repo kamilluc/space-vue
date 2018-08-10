@@ -29,16 +29,12 @@
     <!-- </div> -->
 
     <div class="results" v-if="results && !loading && step===1">
-      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" @click.native="handleModalOpen(item)" />
+      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" @click.native="handleModalOpen" />
       <!-- <div v-for="item in results">
         <p>{{item.links[0].href }}</p>
       </div> -->
     </div>
-
-    <div class="lds-dual-ring" v-if="step===1 && loading"></div>
-    <Modal v-if="modalOpen" @closeModal="modalOpen=false"
-    :item="modalItem"
-    />
+    <Modal v-if="modalOpen"/>
   </div>
 </template>
 
@@ -58,12 +54,11 @@ export default {
   components: { Claim, SearchInput, HeroImage, Item, Modal },
   data() {
     return {
-      modalOpen: false,
-      modalItem: null,
       loading: false,
       step: 0,
       searchValue: "",
-      results: []
+      results: [],
+      modalOpen: false
     };
   },
   methods: {
@@ -77,11 +72,9 @@ export default {
     //       console.log(err);
     //     });
     // }
-    handleModalOpen(item) {
+    handleModalOpen() {
       this.modalOpen = true;
-      this.modalItem = item;
     },
-
     handleInput: debounce(function() {
       this.loading = true;
       console.log(this.searchValue);
@@ -159,40 +152,6 @@ export default {
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.lds-dual-ring {
-  margin-top: 100px;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
-}
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 46px;
-  height: 46px;
-  margin: 1px;
-  border-radius: 50%;
-  border: 5px solid #1e3d4a;
-  border-color: #1e3d4a transparent #1e3d4a transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="app">
     <div class="nav">
-      <router-link to="/" class="redirect">| Home | </router-link>
-      <router-link to="/secret" class="redirect">| Secret |</router-link>
+      <router-link to="/">spacer</router-link>
+      <router-link to="/about">about</router-link>
     </div>
     <router-view />
   </div>
@@ -20,15 +20,5 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
-}
-.redirect {
-  text-decoration: none;
-  color: orangered;
-}
-.nav {
-  text-decoration: none;
-  color: #333;
-  // margin-left: 10px;
-  padding: 10px;
 }
 </style>

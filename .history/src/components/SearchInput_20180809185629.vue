@@ -44,7 +44,7 @@ export default {
 .searchinput-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 70px;
   width: 250px;
 }
 

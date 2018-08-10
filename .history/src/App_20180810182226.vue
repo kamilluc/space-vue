@@ -1,8 +1,8 @@
 <template>
   <div class="app">
     <div class="nav">
-      <router-link to="/" class="redirect">| Home | </router-link>
-      <router-link to="/secret" class="redirect">| Secret |</router-link>
+      <router-link to="/" class="redirect">Home</router-link>
+      <router-link to="/about" class="redirect"> About</router-link>
     </div>
     <router-view />
   </div>
@@ -23,7 +23,6 @@ body {
 }
 .redirect {
   text-decoration: none;
-  color: orangered;
 }
 .nav {
   text-decoration: none;

@@ -34,9 +34,7 @@
         <p>{{item.links[0].href }}</p>
       </div> -->
     </div>
-
-    <div class="lds-dual-ring" v-if="step===1 && loading"></div>
-    <Modal v-if="modalOpen" @closeModal="modalOpen=false"
+    <Modal v-if="modalOpen" @closeModal="modalOpen=false" 
     :item="modalItem"
     />
   </div>
@@ -159,40 +157,6 @@ export default {
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.lds-dual-ring {
-  margin-top: 100px;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
-}
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 46px;
-  height: 46px;
-  margin: 1px;
-  border-radius: 50%;
-  border: 5px solid #1e3d4a;
-  border-color: #1e3d4a transparent #1e3d4a transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 </style>

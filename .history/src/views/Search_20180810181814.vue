@@ -163,14 +163,9 @@ export default {
 }
 
 .lds-dual-ring {
-  margin-top: 100px;
   display: inline-block;
   width: 64px;
   height: 64px;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
 }
 .lds-dual-ring:after {
   content: " ";
@@ -182,10 +177,6 @@ export default {
   border: 5px solid #1e3d4a;
   border-color: #1e3d4a transparent #1e3d4a transparent;
   animation: lds-dual-ring 1.2s linear infinite;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
 }
 @keyframes lds-dual-ring {
   0% {

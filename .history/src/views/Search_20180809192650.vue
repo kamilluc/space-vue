@@ -29,16 +29,11 @@
     <!-- </div> -->
 
     <div class="results" v-if="results && !loading && step===1">
-      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" @click.native="handleModalOpen(item)" />
+      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id"/>
       <!-- <div v-for="item in results">
         <p>{{item.links[0].href }}</p>
       </div> -->
     </div>
-
-    <div class="lds-dual-ring" v-if="step===1 && loading"></div>
-    <Modal v-if="modalOpen" @closeModal="modalOpen=false"
-    :item="modalItem"
-    />
   </div>
 </template>
 
@@ -49,17 +44,14 @@ import Claim from "@/components/Claim";
 import SearchInput from "@/components/SearchInput";
 import HeroImage from "@/components/HeroImage";
 import Item from "@/components/Item";
-import Modal from "@/components/Modal";
 
 const API = "https://images-api.nasa.gov/search?q=";
 
 export default {
   name: "Search",
-  components: { Claim, SearchInput, HeroImage, Item, Modal },
+  components: { Claim, SearchInput, HeroImage, Item },
   data() {
     return {
-      modalOpen: false,
-      modalItem: null,
       loading: false,
       step: 0,
       searchValue: "",
@@ -77,10 +69,6 @@ export default {
     //       console.log(err);
     //     });
     // }
-    handleModalOpen(item) {
-      this.modalOpen = true;
-      this.modalItem = item;
-    },
 
     handleInput: debounce(function() {
       this.loading = true;
@@ -150,49 +138,14 @@ export default {
   margin-top: 120px;
 }
 
-.results {
+.resaults {
   // width: 80%;
-  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.lds-dual-ring {
-  margin-top: 100px;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
-}
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 46px;
-  height: 46px;
-  margin: 1px;
-  border-radius: 50%;
-  border: 5px solid #1e3d4a;
-  border-color: #1e3d4a transparent #1e3d4a transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 90px;
-  }
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 </style>
